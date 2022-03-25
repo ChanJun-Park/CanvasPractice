@@ -6,6 +6,7 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 
+
 class CanvasCustomView @JvmOverloads constructor(
 	context: Context,
 	attrs: AttributeSet? = null,
@@ -27,7 +28,7 @@ class CanvasCustomView @JvmOverloads constructor(
 		this.color = Color.RED
 		this.strokeWidth = 3f
 		this.style = Paint.Style.STROKE
-		this.textSize = 10f
+		this.textSize = 15f
 	}
 
 	private val rectPaint = Paint().apply {
@@ -104,6 +105,49 @@ class CanvasCustomView @JvmOverloads constructor(
 
 			drawCircle(width.toFloat() / 2, height.toFloat() / 2, 50.dpToPx(), circlePaint)
 
+			drawArc(
+				25.dpToPx(),
+				125.dpToPx(),
+				125.dpToPx(),
+				225.dpToPx(),
+				0f,
+				270f,
+				true,
+				circlePaint
+			)
+
+			drawArc(
+				25.dpToPx(),
+				250.dpToPx(),
+				125.dpToPx(),
+				350.dpToPx(),
+				0f,
+				270f,
+				false,
+				circlePaint
+			)
+
+			circlePaint.style = Paint.Style.STROKE
+			circlePaint.strokeWidth = 10.dpToPx()
+
+			drawArc(
+				25.dpToPx(),
+				350.dpToPx(),
+				125.dpToPx(),
+				450.dpToPx(),
+				0f,
+				270f,
+				false,
+				circlePaint
+			)
+
+			drawOval(
+				275.dpToPx(),
+				50.dpToPx(),
+				325.dpToPx(),
+				125.dpToPx(),
+				circlePaint
+			)
 		}
 	}
 
